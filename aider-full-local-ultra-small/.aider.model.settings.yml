@@ -1,0 +1,21 @@
+# 1. Reasoning/Architect Model Configuration
+- name: ollama_chat/gemma4:e4b-it-qat
+  extra_params:
+    # Set a large context window to fit your repo map and history
+    num_ctx: 32768
+    num_predict: 8192
+    # Google & Ollama's official recommended sampling for Gemma 4
+    temperature: 1.0
+    top_p: 0.95
+    top_k: 64
+
+# 2. Editor Model Configuration
+- name: ollama_chat/gemma4:e4b-it-qat
+  extra_params:
+    # A moderate context window is enough for applying localized diff edits
+    num_ctx: 32768 #4096
+    num_predict: 8192
+    # Low temperature prevents the editor from hallucinating syntax changes
+    temperature: 0.0
+    top_p: 0.95
+    top_k: 64
