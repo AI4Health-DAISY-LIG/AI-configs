@@ -1,0 +1,22 @@
+# Target the precise Albert API model ID mapping
+model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+editor-model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+architect: true
+auto-accept-architect: false
+
+
+# Automatically ingest coding preferences
+read:
+  - .aider.convention.md
+
+# Fine-tune model parameters safely
+model-settings:
+  - name: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+    extra_params:
+      temperature: 0.7
+      top_p: 0.8
+      top_k: 20
+  - name: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct-editor
+    extra_params:
+      temperature: 0.0
+      top_p: 0.1

@@ -1,0 +1,14 @@
+# Use Qwen3-Coder as both the main Architect model and the Editor model
+model: ollama_chat/gemma4:e4b-it-qat
+editor-model: ollama_chat/gemma4:e4b-it-qat
+
+# Force Aider to start in Architect mode by default
+chat-mode: architect
+auto-accept-architect: false 
+
+# Custom model configurations file
+model-settings-file: .aider.model.settings.yml
+
+# Automatically load your rules as read-only context in every session
+read:
+  - .aider.convention.md
