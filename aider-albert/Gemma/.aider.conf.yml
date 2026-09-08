@@ -1,0 +1,22 @@
+# Target the precise Albert API model ID mapping
+model: openai/google/gemma-4-31B-it
+editor-model: openai/google/gemma-4-31B-it
+architect: true
+auto-accept-architect: false
+
+
+# Automatically ingest coding preferences
+read:
+  - .aider.convention.md
+
+# Fine-tune model parameters safely
+model-settings:
+  - name: openai/google/gemma-4-31B-it
+    extra_params:
+      temperature: 1 #0.7
+      top_p: 0.8
+      top_k: 20
+  - name: openai/google/gemma-4-31B-it
+    extra_params:
+      temperature: 0.0
+      top_p: 0.1
