@@ -1,0 +1,23 @@
+# Secrets — ne jamais committer
+.env
+ 
+# Environnements virtuels
+monvenv/
+.venv/
+venv/
+ 
+# Notebooks — sorties de cellules potentiellement lourdes ou confidentielles
+*_clean.ipynb
+.ipynb_checkpoints/
+ 
+# Python
+__pycache__/
+*.pyc
+ 
+# Aider
+.aider*.tags.cache*
+.aider.chat.history.md
+.aider.input.history
+ 
+# OS
+.DS_Store
