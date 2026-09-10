@@ -1,6 +1,6 @@
 This document explains how to install, configure, and use **Aider** with the **Albert API** models (DINUM/Etalab) for this project, taking into account the fact that some of the data handled is **confidential**.
 
-The folder contains the files: Gitignore/env/3 .yml files in the config folder. This folder contains several ready-to-use Aider configuration files, so you can test different models and settings by just configuring different files.
+The folder contains the files: Gitignore/env/3 .yml files in the config folder. This folder contains several ready-to-use Aider configuration files giving the possibility to use different models and settings by just configuring different files.
 
 ## Files
 
@@ -20,7 +20,7 @@ Albert API is the sovereign AI infrastructure made available by DINUM (Direction
 
 - It is hosted in a sovereign environment (SecNumCloud certified via Outscale).
 - No data sent is reused for training, nor retained beyond the processing of the request.
-- Suited to sensitive data (e.g. research data, unpublished results), unlike a direct send to commercial consumer-facing APIs.
+- Suited to sensitive data.
 
 ### Installing Aider
 
