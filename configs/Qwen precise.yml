@@ -1,0 +1,19 @@
+# ============================================
+# Config : Qwen3-Coder — mode PRÉCIS / DÉTERMINISTE
+# Command: aider -c configs/qwen-precise.yml
+# ============================================
+
+model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+editor-model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+architect: false          # no reflexion
+auto-accept-architect: false
+
+edit-format: diff        
+map-tokens: 1024
+
+model-settings:
+  - name: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+    extra_params:
+      temperature: 0.0    # déterministe — même prompt = même sortie
+      top_p: 0.1          # ne considère que les tokens quasi certains
+      top_k: 1            
