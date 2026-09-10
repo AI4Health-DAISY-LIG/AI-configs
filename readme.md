@@ -80,7 +80,7 @@ Check that the key works before launching Aider:
 ```
 curl https://albert.api.etalab.gouv.fr/v1/models -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
-A JSON response listing the models (Qwen3-Coder, Mistral-Small, etc.) confirms everything is operational.
+A JSON response listing the models confirms everything is working well.
 
 ### Everyday usage
 
