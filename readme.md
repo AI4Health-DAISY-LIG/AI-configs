@@ -1,8 +1,10 @@
+# Aider-Albert integration
+
 This document explains how to install, configure, and use **Aider** with the **Albert API** models, taking into account the fact that some of the data handled is **confidential**.
 
 The folder contains the files: a Gitignore file, an .env file and three .yml files in the config folder. This folder contains several ready-to-use Aider configuration files giving the possibility to use different models and settings by just configuring different files.
 
-## Files
+### Files
 
 | File | Model | Use case |
 |---|---|---|
@@ -58,7 +60,7 @@ OPENAI_API_BASE=https://albert.api.etalab.gouv.fr/v1
 OPENAI_API_KEY=your_albert_key_here
 ```
 
-### Making sure `.env` is properly ignored by Git
+#### Making sure `.env` is properly ignored by Git
 
 ```
 echo ".env" >> .gitignore
@@ -125,7 +127,7 @@ Useful commands in the Aider REPL:
 | `/chat-mode architect` | "Architect" mode for complex changes |
 | `!<command>` | Runs a shell command from inside Aider |
 
-### How to launch a given config
+#### How to launch a given config
 
 ```bash
 aider -c configs/qwen-precise.yml
@@ -146,7 +148,7 @@ export OPENAI_API_BASE="https://albert.api.etalab.gouv.fr/v1"
 export OPENAI_API_KEY="your_albert_key"
 ```
 
-### Auto-loaded conventions
+#### Auto-loaded conventions
 
 ```yaml
 read:
@@ -155,7 +157,7 @@ read:
 means that at every launch, Aider automatically injects the content of this file into the context — useful for enforcing a code style without having to repeat it in every prompt.
 
 
-### Troubleshooting (common errors)
+#### Troubleshooting (common errors)
 
 | Error | Likely cause | Solution |
 |---|---|---|
@@ -165,7 +167,7 @@ means that at every launch, Aider automatically injects the content of this file
 | Aider uses gpt-4o instead of the Albert model | `OPENAI_API_BASE` not defined in the session, or no model specified | Re-export both variables, relaunch with `--model openai/Qwen/...` |
 | Invalid command in the Aider REPL | Shell command typed without the `!` prefix | Use `!<command>` inside Aider |
 
-### Handling large files (notebooks, tokens)
+#### Handling large files (notebooks, tokens)
 
 Jupyter notebooks (`.ipynb`) often embed cell outputs (plots, results), which can blow up the number of tokens sent and trigger a `429 rate limit` error.
 
@@ -180,7 +182,7 @@ The original file stays intact; only the lightened version is added to Aider:
 /add workflows/my_notebook_clean.ipynb
 ```
 
-### Confidential data
+#### Confidential data
 
 - Never `/add` a file containing raw or identifying patient/subject data.
 - Always check `/tokens` and the context content before sending a request.
@@ -192,7 +194,7 @@ The original file stays intact; only the lightened version is added to Aider:
 
 ## 2. Model / Parameter Comparison
 
-### The "agents" in Aider = model roles
+### The "agents" in Aider
 
 Aider distinguishes several roles, each of which can use a different model:
 
@@ -202,7 +204,7 @@ Aider distinguishes several roles, each of which can use a different model:
 | **Architect** (if enabled) | Thinks about the change strategy without writing the code directly |
 | **Editor** | Translates the architect's reasoning into the diff/code actually applied to the file |
 
-| Parameter | Definition | Concrete effect | Typical values |
+| Parameter | Definition |  effect | Typical values |
 |---|---|---|---|
 | **temperature** | Controls the degree of randomness in choosing the next word/token | Low = deterministic, predictable, repetitive responses. High = more varied, creative responses, sometimes less reliable. | `0.0` → deterministic (ideal for precisely editing code). `0.7` → balanced (good for reasoning/explaining). `1.0+` → very creative, risky for code. |
 | **top_p** (nucleus sampling) | Only considers tokens whose cumulative probability reaches this threshold | Low = very restricted choice, limited to the most probable options. High = more vocabulary/structure diversity. | `0.1` → very restrictive, near-deterministic. `0.8-0.9` → moderate diversity, common usage. `1.0` → no restriction. |
@@ -210,7 +212,7 @@ Aider distinguishes several roles, each of which can use a different model:
 | **max_tokens** *(optional, not in your file)* | Limits the number of tokens generated in the output | Avoids truncated or, conversely, overly long/costly responses. | `4096`, `8192` depending on the task. |
 | **reasoning_effort** *(for models with reasoning, e.g. o1/gpt-oss)* | Controls the depth of internal reasoning before answering | Higher = better quality but slower/more costly. | `low`, `medium`, `high` depending on the model. |
 
-### Edit format (diff vs whole)
+#### Edit format (diff vs whole)
 
 - **Diff edit format**: the model sends only the changed lines/hunks — much more token-efficient, especially on large files.
 - **Whole edit format**: the model re-sends the **entire file content** for every edit — which will burn through your token budget fast.
