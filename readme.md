@@ -1,4 +1,4 @@
-This document explains how to install, configure, and use **Aider** with the **Albert API** models (DINUM/Etalab) for this project, taking into account the fact that some of the data handled is **confidential**.
+This document explains how to install, configure, and use **Aider** with the **Albert API** models, taking into account the fact that some of the data handled is **confidential**.
 
 The folder contains the files: Gitignore/env/3 .yml files in the config folder. This folder contains several ready-to-use Aider configuration files giving the possibility to use different models and settings by just configuring different files.
 
