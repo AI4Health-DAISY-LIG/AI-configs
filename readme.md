@@ -114,6 +114,17 @@ Without changing your permanent config:
 /model openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
 ```
 
+Useful commands in the Aider REPL:
+
+| Command | Effect |
+|---|---|
+| `/add <file>` | Adds a file to the chat context |
+| `/drop <file>` | Removes a file from the context |
+| `/tokens` | Shows current token usage (run it first, on a clean prompt) |
+| `/model <name>` | Switches models during the session |
+| `/chat-mode architect` | "Architect" mode for complex changes |
+| `!<command>` | Runs a shell command from inside Aider |
+
 ### How to launch a given config
 
 ```bash
@@ -143,22 +154,6 @@ read:
 ```
 means that at every launch, Aider automatically injects the content of this file into the context — useful for enforcing a code style without having to repeat it in every prompt.
 
-### Daily usage
-
-```bash
-aider
-```
-
-Useful commands in the Aider REPL:
-
-| Command | Effect |
-|---|---|
-| `/add <file>` | Adds a file to the chat context |
-| `/drop <file>` | Removes a file from the context |
-| `/tokens` | Shows current token usage (run it first, on a clean prompt) |
-| `/model <name>` | Switches models during the session |
-| `/chat-mode architect` | "Architect" mode for complex changes |
-| `!<command>` | Runs a shell command from inside Aider |
 
 ### Troubleshooting (common errors)
 
