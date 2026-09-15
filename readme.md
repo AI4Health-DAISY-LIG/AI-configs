@@ -45,7 +45,7 @@ aider --version
 2. Log into the Playground: `https://albert.playground.etalab.gouv.fr/`
 3. Generate/copy your personal API key from the Playground.
 
-⚠️ This key is **personal and confidential** — never share it, commit it, or display it in a file tracked by Git.
+PS: This key is **personal and confidential** — never share it, commit it, or display it in a file tracked by Git.
 
 ### Configuring the `.env` file
 
