@@ -24,6 +24,7 @@ Albert API is the sovereign AI infrastructure made available by DINUM (Direction
 - No data sent is reused for training, nor retained beyond the processing of the request.
 - Suited to sensitive data.
 
+Learn more about API: `https://aws.amazon.com/what-is/api/`
 ### Installing Aider
 
 ```
@@ -110,19 +111,19 @@ Edit the files? (Y)es/(N)o
 
 You can see the reasoning before anything is modified.
 
-4. Temporarily switch models during the session
-Without changing your permanent config:
+4. It's possible to switch models during the session
+Without changing the permanent config:
 ```
 /model openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
 ```
 
-Useful commands in the Aider REPL:
+#### Useful commands:
 
 | Command | Effect |
 |---|---|
 | `/add <file>` | Adds a file to the chat context |
 | `/drop <file>` | Removes a file from the context |
-| `/tokens` | Shows current token usage (run it first, on a clean prompt) |
+| `/tokens` | Shows current token usage |
 | `/model <name>` | Switches models during the session |
 | `/chat-mode architect` | "Architect" mode for complex changes |
 | `!<command>` | Runs a shell command from inside Aider |
@@ -169,7 +170,7 @@ means that at every launch, Aider automatically injects the content of this file
 
 #### Handling large files (notebooks, tokens)
 
-Jupyter notebooks (`.ipynb`) often embed cell outputs (plots, results), which can blow up the number of tokens sent and trigger a `429 rate limit` error.
+Jupyter notebooks (`.ipynb`) often embed cell outputs (plots, results), which can blow up the number of tokens sent and trigger a rate limit` error.
 
 **Solution — clean the outputs before adding the notebook to Aider:**
 ```bash
@@ -250,5 +251,3 @@ aider --model openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
 ```bash
 python3 -c "import yaml; print(yaml.safe_load(open('.aider.conf.yml')))"
 ```
-
-- More about API: `https://aws.amazon.com/what-is/api/`
