@@ -24,7 +24,8 @@ Albert API is the sovereign AI infrastructure made available by DINUM (Direction
 - No data sent is reused for training, nor retained beyond the processing of the request.
 - Suited to sensitive data.
 
-Learn more about API: `https://aws.amazon.com/what-is/api/`
+Learn more about API: https://aws.amazon.com/what-is/api/
+
 Learn more about Aider : https://aider.chat/docs/usage.html
 
 ### Installing Aider
