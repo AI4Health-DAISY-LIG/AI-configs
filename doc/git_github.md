@@ -61,7 +61,8 @@ Gestion de version
 	- Git Bash / Git GUI
 	
 	
-- A that shows some basic commands of git is provided in the doc folder 
+- A that shows some basic commands of git is provided in the doc folder : http://codeur-pro.fr/cadeau-formation-git/
+  
 
 
 
