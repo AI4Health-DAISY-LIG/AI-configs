@@ -1,23 +1,21 @@
 # Biolink Model Documentation 
 
 
-This document gives an overview for the bio link model , the structure of the model and the way it functions.
-
+This document gives an overview of the BioLink model, its structure, and the way it functions.
 
 ## Introduction: knowledge graphs KG
 
-Knowledge graphs a way of representing human knowledge in a computable form. It uses semantic network. Nodes represent entities and edges represent links/relationshipss between entities.
+Knowledge graphs are a way of representing human knowledge in a computable form. They use a semantic network, in which nodes represent entities and edges represent links/relationships between entities.
 
-Some open source knowledge examples: Wikidata and dbpedia  built using semantic web technologies.
-
-Some examples of integrated KGs IN LIFE SCIENCE / SEMANTIC midline DATABASE, HETIONET,WikiDatata, Monarch Initiative, Bio2RDF..
-
-KG makes it easy to decompose knowledge in simple facts, it allow deductive inference through logical rules. It can also serve as a store of information for various application or even be embedded into vector spaces that allows for their use in neural networks.
+Knowledge graphs (KGs) make it easy to decompose knowledge in simple facts, it allow deductive inference through logical rules. They can also serve as a store of information for various application or even be embedded into vector spaces that allows for their use in neural networks.
 
 Each KG is developed for a specific task, with a specific vocabulary, in a specific form. It typically lack schemas 
 
 The main goal is to standardize knowledge graphes and to make there interpretable in order to pool all the KGs together. 
-The Biolink model was developed as a part of the standardization efforts in the NCATS Biomedical Data Translator Project (Link)
+The Biolink model was developed as a part of the standardization efforts in the NCATS Biomedical Data Translator Project ([Link](https://ncatstranslator.github.io/TranslatorTechnicalDocumentation/))
+
+Some open source knowledge examples: Wikidata and dbpedia  built using semantic web technologies.
+Some examples of integrated KGs IN LIFE SCIENCE / SEMANTIC midline DATABASE, HETIONET,WikiDatata, Monarch Initiative, Bio2RDF..
 
 ## The Biolink Model
 
@@ -49,7 +47,10 @@ At a glance the structure is as follows, **- Classes - Entities - Associations -
 A class can be an entity or an association. It can have one or more slots. Within the Biolink Model there are two hierarchies of classes: - Named Things - Associations (Named Things are disjoint from Associations) But they do share a common ancestor class: entity.
 Named Things are classes that represent real world entities such as genes, diseases whereas associations are classes that represent an assertion or statement.
 
-In general, Associations have three main properties (or slots): * subject: the subject of the association * predicate: the predicate or relationship between the subject and the object of the association * object: the object of the association These three properties (or slots) define what Biolink calls a "core triple".
+In general, Associations have three main properties (or slots): 
+* subject: the subject of the association
+* * predicate: the predicate or relationship between the subject and the object of the association
+  * * object: the object of the association These three properties (or slots) define what Biolink calls a "core triple".
 
 Subjects and objects are always classes in the Biolink Model that are descendants of "biolink:NamedThing" and represent core biological, chemical, and biomedical concepts
 
@@ -96,12 +97,8 @@ It is also possible to define custom data types using the modeling language.
 -  *range:* defines the type of the object of the slot.
 -  *domain:* defines the type of the subject of the slot.
 -   
-#### Interpreting a Fully Qualified Edge: 
+#### Interpreting a Fully Qualified Edge
 see example in https://biolink.github.io/biolink-model/reading-a-qualifier-based-statement/
-a
-
-
-
 
 
 
@@ -127,21 +124,21 @@ Within Translator, there is weekly data modeling calls and help desk set up for 
 
 https://biolink.github.io/biolink-model/curating-the-model/
 
-## Using the LinkML Modeling Language: how to use most of the slots: 
+## Using the LinkML Modeling Language
 
-https://biolink.github.io/biolink-model/using-the-modeling-language/
-
+**How to use most of the slots:**  https://biolink.github.io/biolink-model/using-the-modeling-language/
 
 
 
 ## Suite of tools for working with Biolink MODEL
 
-- biolinkML : the meta modeling framework for building the Biolink Model from the YAML. It generates JSON Schema, python da  tables, Java classes, GraphQL, JSON-LD context, RDF Turtle, OWL, Shape Expressions (ShEx)
+**- biolinkML :** the meta modeling framework for building the Biolink Model from the YAML. It generates JSON Schema, python da  tables, Java classes, GraphQL, JSON-LD context, RDF Turtle, OWL, Shape Expressions (ShEx)
 
-- biolink-model-toolkit: a utility for working with the Biolink Model. It's a python API for working with the Biolink Model. It provides convenience methods for querying the model.
-- KGX; a knowledge graph exchange tool for merging, building and validating KGs. It's a python library and set of command line utilities for exchanging KGs that conform to or are aligned to the Biolink Model 
+**- biolink-model-toolkit:** a utility for working with the Biolink Model. It's a python API for working with the Biolink Model. It provides convenience methods for querying the model.
 
-## References: 
+**- KGX:** a knowledge graph exchange tool for merging, building and validating KGs. It's a python library and set of command line utilities for exchanging KGs that conform to or are aligned to the Biolink Model 
+
+## References
 
 - BioLink Model - standardizing knowledge graphs and making them interoperable - Deepak Unni - OBF: BOSC - ISMB/ECCB 2019: https://www.youtube.com/watch?v=8iM-WHW6zTA
 
