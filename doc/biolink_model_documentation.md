@@ -1,14 +1,14 @@
 # Biolink Model Documentation 
 
 
-In this document, 
+This document gives an overview for the bio link model , the structure of the model and the way it functions.
 
 
 ## Introduction: knowledge graphs KG
 
 Knowledge graphs a way of representing human knowledge in a computable form. It uses semantic network. Nodes represent entities and edges represent links/relationshipss between entities.
 
-Open source knowledge examples: Wikidata and dbpedia  built using semantic web technologies.
+Some open source knowledge examples: Wikidata and dbpedia  built using semantic web technologies.
 
 Some examples of integrated KGs IN LIFE SCIENCE / SEMANTIC midline DATABASE, HETIONET,WikiDatata, Monarch Initiative, Bio2RDF..
 
@@ -21,15 +21,15 @@ The Biolink model was developed as a part of the standardization efforts in the 
 
 ## The Biolink Model
 
-Biolink Model can be used to formalize the relationships between data structures in translational science. It incorporates object-oriented classification and graph-oriented features. The core of the model is a set of hierarchical, interconnected classes (or categories) and relationships between them (or predicates).
+Biolink Model is a high-level data model for representing biological and biomedical knowledge. It can be used to formalize the relationships between data structures in translational science. It incorporates object-oriented classification and graph-oriented features. The core of the model is a set of hierarchical, interconnected classes (or categories) and relationships between them (or predicates).
 
-The model consists of nodes(entities) and edges(associations); entities that are arranged in a hierarchy and represents entities found in biological and biomedical knowledge (genes, proteins,phenotopic feature..). Each entity has its specific parameters: its own stable URI, mappings to other ontologies and a list of valid ID prefixes.
+The model consists of nodes(entities), edges(associations), predicates and properties; entities that are arranged in a hierarchy and represents entities found in biological and biomedical knowledge (genes, proteins,phenotopic feature..). Each entity has its specific parameters: its own stable URI, mappings to other ontologies and a list of valid ID prefixes.
 
-Exemple of an entity representation :  ....
-
-The edges are association types. There is a hierarchy of associations and the root of all associations is the "Association" class. (example: GeneToDiseaseAssociation). 
+The edges are association types. They represent assertions or statements. There is a hierarchy of associations and the root of all associations is the "Association" class. (example: GeneToDiseaseAssociation). 
 The association connects a "subject" node and an "object" node via a "relation" prperty. Every association can have properties and some of them can have additional properties that are unique.
 The nature of the association depends upon the value that is in the relation property.
+
+Predicates are high-level relationships. They are used as predicate in a statement. Many predicates can be used with multiple kinds of associations.
 
 The entirety of the model is defined in the yaml (considered as the source of truth) and then by using a biolinkML: a package or meta modeling framework to create a documentation , python data classes, json schema, RDF/OWL..
 
@@ -53,9 +53,16 @@ In general, Associations have three main properties (or slots): * subject: the s
 
 Subjects and objects are always classes in the Biolink Model that are descendants of "biolink:NamedThing" and represent core biological, chemical, and biomedical concepts
 
-(add figure 1 from https://biolink.github.io/biolink-model/understanding-the-model/ )
 
-(to check and understand) : Together, the subject, predicate, object, and optional qualifier(s) comprise the full semantics of the statement that an Association puts forth as true (i.e. its ‘S-P-O-Q’ semantics). Association objects may also include slots to hold Metadata about this core statement - primarily information about the provenance and evidence supporting it - but unlike qualifiers, this metadata does not contribute to the meaning of the core Statement itself. Using these qualifier and metadata elements together, we can build Associations with many possible ‘layers’ of complexity.
+
+
+
+<img width="686" height="353" alt="onion" src="https://github.com/user-attachments/assets/77c5d63f-8005-408f-8a7d-c32ed0ff6ebd" />
+
+(figure from https://biolink.github.io/biolink-model/understanding-the-model/ )
+
+
+Together, the subject, predicate, object, and optional qualifier(s) comprise the full semantics of the statement that an Association puts forth as true (i.e. its ‘S-P-O-Q’ semantics). Association objects may also include slots to hold Metadata about this core statement - primarily information about the provenance and evidence supporting it - but unlike qualifiers, this metadata does not contribute to the meaning of the core Statement itself. Using these qualifier and metadata elements together, we can build Associations with many possible ‘layers’ of complexity.
 
 ### Mixins
 
@@ -100,8 +107,23 @@ a
 
 
 ## Installation
+```bash
+pip install biolink-model
+```
+Additional functionality is available through extras:
 
+Extra	Adds	Use it for
+- scripts	(linkml, rdflib, curies):	The model generation/maintenance scripts under src/biolink_model/scripts/ (invoked via the Makefile)
+- docs (mkdocs, mkdocs-material, mkdocs-mermaid2-plugin): 	Building the documentation site
+- all: Everything
+  
+```bash
+pip install "biolink-model[scripts]"    # generation/maintenance scripts
+pip install "biolink-model[all]"        # everything
+```
 ## Curating the Biolink Model: adding an entity class , an association class, a predicate and  properties
+
+Within Translator, there is weekly data modeling calls and help desk set up for users. 
 
 https://biolink.github.io/biolink-model/curating-the-model/
 
@@ -114,14 +136,20 @@ https://biolink.github.io/biolink-model/using-the-modeling-language/
 
 ## Suite of tools for working with Biolink MODEL
 
-- biolinkML : the meta modeling framework for building the Biolink Model from the YAML
+- biolinkML : the meta modeling framework for building the Biolink Model from the YAML. It generates JSON Schema, python da  tables, Java classes, GraphQL, JSON-LD context, RDF Turtle, OWL, Shape Expressions (ShEx)
 
-- biolink-model-toolkit: a utility for working with the Biolink Model
-- KGX; a knowledge graph exchange tool for merging, building and validating KGs.
+- biolink-model-toolkit: a utility for working with the Biolink Model. It's a python API for working with the Biolink Model. It provides convenience methods for querying the model.
+- KGX; a knowledge graph exchange tool for merging, building and validating KGs. It's a python library and set of command line utilities for exchanging KGs that conform to or are aligned to the Biolink Model 
 
 ## References: 
 
 - BioLink Model - standardizing knowledge graphs and making them interoperable - Deepak Unni - OBF: BOSC - ISMB/ECCB 2019: https://www.youtube.com/watch?v=8iM-WHW6zTA
+
+- Slides: Presentation: https://bit.ly/biolink-model-workshop...
+- Biolinkml github : https://github.com/biolink/biolinkml
+- Biolink model toolkit: https://github.com/biolink/biolink-mo...
+- Biolink KGX: https://github.com/biolink/kgx
+
 
 
 
