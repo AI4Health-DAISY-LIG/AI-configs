@@ -49,8 +49,8 @@ Named Things are classes that represent real world entities such as genes, disea
 
 In general, Associations have three main properties (or slots): 
 * subject: the subject of the association
-* * predicate: the predicate or relationship between the subject and the object of the association
-  * * object: the object of the association These three properties (or slots) define what Biolink calls a "core triple".
+* predicate: the predicate or relationship between the subject and the object of the association
+* object: the object of the association These three properties (or slots) define what Biolink calls a "core triple".
 
 Subjects and objects are always classes in the Biolink Model that are descendants of "biolink:NamedThing" and represent core biological, chemical, and biomedical concepts
 
@@ -94,13 +94,11 @@ It is also possible to define custom data types using the modeling language.
 - *exact_mappings:* A list of terms from different schemas or terminology systems that have identical meaning.
 - *aliases:* Alternate names/labels for the element. These do not alter the semantics of the schema, but may be useful to support search and alignment.
 - *is_a:* A primary parent class or slot from which inheritable metaslots are propagated from. 
--  *range:* defines the type of the object of the slot.
--  *domain:* defines the type of the subject of the slot.
--   
+- *range:* defines the type of the object of the slot.
+- *domain:* defines the type of the subject of the slot.
+  
 #### Interpreting a Fully Qualified Edge
 see example in https://biolink.github.io/biolink-model/reading-a-qualifier-based-statement/
-
-
 
 
 ## Installation
