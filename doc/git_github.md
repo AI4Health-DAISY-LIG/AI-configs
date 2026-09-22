@@ -66,7 +66,6 @@ A quick reference covering Git fundamentals, essential commands, branches, remot
 
 PS: Changes in Git are always treated as additions/deletions of lines (+ or -).
 
- (add figure1)
 
 ### Undoing changes
 
@@ -109,7 +108,6 @@ PS: Changes in Git are always treated as additions/deletions of lines (+ or -).
 6. Open a Pull Request / Merge Request to the original repository
 7. Wait for review and any requested changes before merging
 
-   (add figure2)
 
 ## Repository files and best practices
 
