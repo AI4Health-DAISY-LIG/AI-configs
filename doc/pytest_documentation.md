@@ -49,7 +49,7 @@ PS: Normally you have one test file per module, though you can also test individ
 - Protects against accidentally breaking things during development
 - Other types exist: integration, system, end-to-end (different purposes)
 
-## More assertions
+### More assertions
 
 ```python
 import pytest
@@ -71,7 +71,7 @@ def test_divide():
   - `match` is a **regex** applied to the error message
   - wrong pattern → failure: "pattern did not match"
 
-## On more example:
+### On more example:
 ```python
  def test_addition():
      assert 1 + 1 == 2
@@ -80,14 +80,14 @@ def test_divide():
      assert 3 in resultat
      assert len(resultat) == 3
 ```
-## Test an exception using pytest.raises :
+### Test an exception using pytest.raises :
 ```python
  import pytest
  def test_division_par_zero():
      with pytest.raises(ZeroDivisionError):
 1/0
 ```
-## Test a warning using pytest.warns :
+### Test a warning using pytest.warns :
 ```python
  def test_warning():
      with pytest.warns(UserWarning):
