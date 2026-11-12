@@ -1,0 +1,21 @@
+# ============================================
+# Config : Mistral-Small — comparaison / usage généraliste
+# Need : compaare results Qwen (code) vs Mistral (généraliste),
+#        utile si une tâche implique de l'analyse/explication
+# Launch: aider -c configs/mistral-default.yml
+# ============================================
+
+model: openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
+editor-model: openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
+architect: false
+auto-accept-architect: false
+
+edit-format: whole        # commencer par "whole",
+                           # tester "diff" ensuite
+
+model-settings:
+  - name: openai/mistralai/Mistral-Small-3.2-24B-Instruct-2506
+    extra_params:
+      temperature: 0.5    # pour usage généraliste
+      top_p: 0.85
+      top_k: 40

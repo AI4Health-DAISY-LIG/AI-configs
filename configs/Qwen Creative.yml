@@ -1,0 +1,19 @@
+# ============================================
+# Config : Qwen3-Coder — CREATIVE / ARCHITECT MODE
+# Use : Thinking about alternatives...
+# command : aider -c configs/qwen-creative.yml
+# ============================================
+
+model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+editor-model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+architect: true            # seperate reasoning (model) and writing (editor-model)
+auto-accept-architect: false  #always confirm..(confidential data)
+
+map-tokens: 2048            # giving a bot of context
+
+model-settings:
+  - name: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct
+    extra_params:
+      temperature: 0.7      # plus de variété dans les approches proposées
+      top_p: 0.8
+      top_k: 30
